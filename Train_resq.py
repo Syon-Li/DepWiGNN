@@ -35,6 +35,7 @@ if __name__=="__main__":
     # model_name = 'roberta-base'
     # model_name = 'albert-base-v2'
     filler_aggregator = 'LSTM'
+    pretrained_model_path = 'saved_model/SPARTUN/model_weights.pth'
     Q_type = 'YN'
     
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -77,12 +78,12 @@ if __name__=="__main__":
     
     if baseline:
         model = Baseline_model_spartun(device=device, model_name=model_name, Q_type=Q_type)
-        model.load_state_dict(torch.load('saved_model/SPARTUN//model_weights.pth'))
+        model.load_state_dict(torch.load(pretrained_model_path))
         optimizer = torch.optim.Adam(model.parameters(), lr=PLM_lr)
     else:
         model = Overall_model_spartun(device=device, model_name=model_name, aggregator=filler_aggregator, Q_type=Q_type)
         if use_pretrain_spartun:
-            model.load_state_dict(torch.load('saved_model/SPARTUN/model_weights.pth'))
+            model.load_state_dict(torch.load(pretrained_model_path))
         optimizer = torch.optim.Adam([{'params': model.PLM.parameters(), 'lr': PLM_lr},
                                       {'params': model.Linear_projection.parameters()},
                                       {'params': model.reasoner.parameters()},
