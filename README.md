@@ -1,7 +1,7 @@
 # DepWiGNN
 
 This is the repository for the paper **DepWiGNN: A Depth-wise Graph Neural Network for Multi-hop Spatial Reasoning in Text.**
-To reproduce the results in the paper, first download the datasets [stepgame](https://github.com/ZhengxiangShi/StepGame), [ReSQ](https://github.com/HLR/SpaRTUN/tree/main) and [SpaRTUN]([b.com/ZhengxiangShi/StepGame](https://github.com/HLR/SpaRTUN/tree/main)https://github.com/HLR/SpaRTUN/tree/main).
+The StepGame, SPARTUN, and ReSQ datasets are from [stepgame](https://github.com/ZhengxiangShi/StepGame), [ReSQ](https://github.com/HLR/SpaRTUN/tree/main) and [SpaRTUN]([b.com/ZhengxiangShi/StepGame](https://github.com/HLR/SpaRTUN/tree/main)https://github.com/HLR/SpaRTUN/tree/main).
 
 - For results in Table 1, set the **dataset_used='StepGame-main'** and **GNN_comparison=False** in **Train_stepgame_spartun.py** and run the script.
 - To pretrain the model on SpaRTUN, set the **dataset_used='SPARTUN'** in **Train_stepgame_spartun.py** and run the script.
